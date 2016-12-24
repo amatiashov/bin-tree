@@ -56,7 +56,9 @@ public class BinTree<K extends Comparable, V> implements Iterator<V>{
     }
 
     public List<V> walk(){
-        return walk(root);
+        if (hasNext())
+            return walk(root);
+        return null;
     }
 
         public V get(K key){
