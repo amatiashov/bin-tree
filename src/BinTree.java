@@ -114,6 +114,32 @@ public class BinTree<K extends Comparable, V> implements Iterator<V>{
         return false;
     }
 
+    public V getMin(){
+        if (!hasNext())
+            return null;
+        Node<K, V> currentBranch = root;
+        Node<K, V> parentBranch = root;
+
+        while (currentBranch != null) {
+            parentBranch = currentBranch;
+            currentBranch = currentBranch.left;
+        }
+        return parentBranch.value;
+    }
+
+    public V getMax(){
+        if (!hasNext())
+            return null;
+        Node<K, V> currentBranch = root;
+        Node<K, V> parentBranch = root;
+
+        while (currentBranch != null) {
+            parentBranch = currentBranch;
+            currentBranch = currentBranch.right;
+        }
+        return parentBranch.value;
+    }
+
     @Override
     public V next() {
         if (!hasNext())

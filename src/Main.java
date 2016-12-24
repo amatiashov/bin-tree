@@ -4,16 +4,22 @@ public class Main {
         BinTree<Integer, String> binTree = new BinTree<>();
 
         binTree.add(78, "S1");
-        binTree.add(34, "S2");
+        binTree.add(30, "S5");
+        binTree.add(10, "S2");
         binTree.add(13, "S3");
         binTree.add(56, "S4");
-        binTree.add(90, "S5");
         binTree.add(33, "S6");
 
         System.out.println("get for key 78: " + binTree.get(78));
         System.out.println("remove for key 78");
         binTree.remove(78);
         System.out.println("get for key 78: " + binTree.get(78));
+
+        String minValue = binTree.getMin();
+        String maxValue = binTree.getMax();
+
+        System.out.println("Min value in tree: " + minValue);
+        System.out.println("Max value in tree: " + maxValue);
 
         System.out.println("While: ");
         while (binTree.hasNext())
