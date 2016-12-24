@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.function.Consumer;
 
@@ -39,7 +41,25 @@ public class BinTree<K extends Comparable, V> implements Iterator<V>{
         }
     }
 
-    public V get(K key){
+    private List<V> walk(Node<K, V> currentBranch){
+        List<V> list = new ArrayList<V>();
+
+        list.add(currentBranch.value);
+
+        if (currentBranch.left != null) {
+            list.addAll(walk(currentBranch.left));
+        }
+        if (currentBranch.right != null){
+            list.addAll(walk(currentBranch.right));
+        }
+        return list;
+    }
+
+    public List<V> walk(){
+        return walk(root);
+    }
+
+        public V get(K key){
         Node<K, V> currentBranch = root;
         while (currentBranch != null){
             int cmp = key.compareTo(currentBranch.key);

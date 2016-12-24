@@ -1,3 +1,4 @@
+import java.util.List;
 
 public class Main {
     public static void main(String... args){
@@ -9,6 +10,9 @@ public class Main {
         binTree.add(13, "S3");
         binTree.add(56, "S4");
         binTree.add(33, "S6");
+
+        List<String> allTree = binTree.walk();
+        System.out.println("All elements in tree: " + allTree);
 
         System.out.println("get for key 78: " + binTree.get(78));
         System.out.println("remove for key 78");
