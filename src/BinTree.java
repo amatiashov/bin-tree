@@ -46,12 +46,11 @@ public class BinTree<K extends Comparable, V> implements Iterator<V>{
 
         list.add(currentBranch.value);
 
-        if (currentBranch.left != null) {
+        if (currentBranch.left != null)
             list.addAll(walk(currentBranch.left));
-        }
-        if (currentBranch.right != null){
+
+        if (currentBranch.right != null)
             list.addAll(walk(currentBranch.right));
-        }
         return list;
     }
 
